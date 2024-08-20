@@ -33,7 +33,7 @@ export function AddTodoDialog(props: AddTodoDialogProps) {
                 <textarea onChange={onDescriptionChange} name="description" ></textarea>
                 
             </div>
-            <button onClick={handleSubmit}>Save</button>
+            <button type="button" onClick={handleSubmit}>Save</button>
         </Dialog>
     )
 }

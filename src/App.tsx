@@ -5,6 +5,7 @@ import { v4 as uuidv4 } from 'uuid';
 
 import './App.css';
 import { AddTodoDialog } from './components/TodoDialog';
+import { TodoList } from './components/TodoList';
 
 const stackTokens: IStackTokens = { childrenGap: 15 };
 const stackStyles: Partial<IStackStyles> = {
@@ -19,7 +20,7 @@ const stackStyles: Partial<IStackStyles> = {
 
 export const App: React.FunctionComponent = () => {
   const [open, setOpen] = useState<boolean>(false);
-  const [TodoList,setTodoList] = useState<Todo[]>([]);
+  const [todoList,setTodoList] = useState<Todo[]>([]);
 
   const handleOpenDialog = () => {
     setOpen(true);
@@ -32,13 +33,14 @@ export const App: React.FunctionComponent = () => {
       description: description,
       state: 'incomplete'
     }
-    setTodoList([...TodoList,newTodo])
+    setTodoList([...todoList,newTodo])
   }
 
   return (
     <Stack horizontalAlign="center"  verticalFill styles={stackStyles} tokens={stackTokens}>
       <button onClick={handleOpenDialog}>Add Todo</button>
       <AddTodoDialog open={open} setOpen={setOpen} addTodo={addTodo}></AddTodoDialog>
+      <TodoList todos={todoList}></TodoList>
     </Stack>
   );
 };
