@@ -4,7 +4,7 @@ import { Todo } from './TodoTypes';
 import { v4 as uuidv4 } from 'uuid';
 
 import './App.css';
-import { AddTodoDialog } from './components/TodoList';
+import { AddTodoDialog } from './components/TodoDialog';
 
 const stackTokens: IStackTokens = { childrenGap: 15 };
 const stackStyles: Partial<IStackStyles> = {
@@ -24,7 +24,7 @@ export const App: React.FunctionComponent = () => {
   const handleOpenDialog = () => {
     setOpen(true);
   }
-  
+
   const addTodo = (name: string, description: string): void => {
     const newTodo: Todo = {
       id: uuidv4(),
