@@ -8,7 +8,7 @@ export interface TodoListProps {
 export function TodoList(props: TodoListProps) {
     const{ todos } = props
     return (
-        <ul>
+        <ul >
             {todos.map((todo) => (
                 <li key={todo.id}>
                     <p>Name: {todo.name}</p>
