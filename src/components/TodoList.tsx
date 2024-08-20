@@ -19,6 +19,11 @@ export function AddTodoDialog(props: AddTodoDialogProps) {
         setDescription(e.target.value);
     }
 
+    const handleSubmit = () => {
+        setOpen(false);
+        addTodo(name, description);
+    }
+
     return (
         <Dialog isOpen={open}>
             <div>
@@ -26,7 +31,9 @@ export function AddTodoDialog(props: AddTodoDialogProps) {
                 <input name="name" onChange={onNameChange} type="string"></input>
                 <p>Description:</p>
                 <textarea onChange={onDescriptionChange} name="description" ></textarea>
+                
             </div>
+            <button onClick={handleSubmit}>Save</button>
         </Dialog>
     )
 }
